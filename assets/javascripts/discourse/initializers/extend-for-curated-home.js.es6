@@ -20,7 +20,11 @@ export default {
           type: "PUT",
           data: {field: property, value: value}
         });
-      }
+      },
+
+      cleanedExcerpt: function() {
+        return this.get('excerpt').replace("[image]", "");
+      }.property('excerpt'),
     });
 
     TopicController.reopen({
@@ -39,8 +43,12 @@ export default {
 
       loaded: function() {
         return this.get('model.loaded');
-      }.property('model.loaded')
-    });
+      }.property('model.loaded'),
 
+      blogExcerpt: function() {
+        return "this is a test";
+      }.property()
+
+    });
   }
 }
