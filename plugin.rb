@@ -3,6 +3,7 @@
 # version: 0.1
 # authors: Benjamin Kampmann
 
+enabled_site_setting :curated_home_enabled
 
 register_asset "curated_home_style.scss"
 

@@ -1,4 +1,3 @@
-
 # add our curated list
 module CuratedTopicQuery
     def list_curated

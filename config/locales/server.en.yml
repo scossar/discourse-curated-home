@@ -2,4 +2,4 @@ en:
   site_settings:
     categories:
       curated_home: "Curated Home Plugin"
-    curated_home_show_sidebar: "Show Sidebar on curated home (requires Sidebar plugin)"
+    curated_home_enabled: "Enable the curated home plugin?"

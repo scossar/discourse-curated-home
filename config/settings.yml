@@ -1,4 +1,4 @@
 curated_home:
-  curated_home_show_sidebar:
-    default: false
+  curated_home_enabled:
+    default: true
     client: true
