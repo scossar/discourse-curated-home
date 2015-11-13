@@ -4,6 +4,8 @@ import DiscoveryTopicsController from "discourse/controllers/discovery/topics";
 import NavItemModel from 'discourse/models/nav-item';
 import HomeNavItem from 'discourse/plugins/discourse-curated-home/discourse/models/home-nav-item';
 import NavigationDefaultController from 'discourse/controllers/navigation/default';
+import NavigationCategoryController from 'discourse/controllers/navigation/category';
+import NavigationCategoriesController from 'discourse/controllers/navigation/categories';
 
 export default {
   name: "extend-for-curated-home",
@@ -69,11 +71,23 @@ export default {
 
     });
 
+    // Try to get a plugin outlet added to `discovery.hbs` before the navigation bar to clean this up
     NavigationDefaultController.reopen({
       homeNavLinkContent: function() {
         return HomeNavItem.create({href: '/', name: "home"});
       }.property(),
+    });
 
+    NavigationCategoryController.reopen({
+      homeNavLinkContent: function() {
+        return HomeNavItem.create({href: '/', name: "home"});
+      }.property(),
+    });
+
+    NavigationCategoriesController.reopen({
+      homeNavLinkContent: function() {
+        return HomeNavItem.create({href: '/', name: "home"});
+      }.property(),
     });
   }
 }
