@@ -48,8 +48,13 @@ $curated-half-rhythm: $curated-rhythm / 2;
     float: left;
     line-height: 0.8em;
     font-size: 0.8em;
-    margin-left: $curated-rhythm;
-    border-top: 2px solid #d4d4d4;
+    clear: both;
+
+    @media (min-width: 960px) {
+      clear: none;
+      margin-left:$curated-rhythm;
+      border-top: 2px solid #d4d4d4;
+    }
   }
 }
 
