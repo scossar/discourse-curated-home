@@ -1,4 +1,4 @@
-<div class="curated-item">
+<div class="post-content">
   {{#if image_url}}
     <img class="teaser" {{bind-attr src="image_url"}} >
   {{/if}}
@@ -7,28 +7,32 @@
     <h2 class="post-title">
       {{{topic-link this}}}
     </h2>
+  </header>
+  <p>
+    {{{cleanedExcerpt}}}
+  </p>
+
+  <p>
+    // <a href="{{unbound url}}">{{i18n 'read_more'}}</a>
+  </p>
+</div>
+
+<div class="post-meta">
+  <p>
+    {{#if category}}
+      <span class="category-title">
+        {{i18n 'in'}}
+        {{bound-category-link category showParent=false allowUncategorized=true}}
+    </span><br>
+    {{/if}}
     <a href="{{created_by.usernameUrl}}"
        classNames="trigger-user-card {{classNames}}"
        data-user-card="{{created_by.username}}" class="author">
       {{i18n 'by'}}
       {{avatar this.created_by imageSize="small"}}
       {{created_by.username}}
-    </a>
-  </header>
+    </a><br>
 
-  <div class="post-content">
-    <p>
-      {{{cleanedExcerpt}}}
-    </p>
-    // <a href="{{unbound url}}">{{i18n 'read_more'}}</a>
-  </div>
-  <div class="post-meta">
-    {{#if category}}
-      <span class="category-title">
-      {{i18n 'in'}}
-        {{bound-category-link category showParent=false allowUncategorized=true}}
-    </span><br>
-    {{/if}}
 
     <span class="date">
       {{#if bumped}}
@@ -37,5 +41,5 @@
         {{raw-date created_at}}
       {{/if}}
     </span>
-  </div>
+  </p>
 </div>
