@@ -17,3 +17,5 @@ en:
     filters:
       curated:
         title: "Home"
+      home:
+        title: "Home"

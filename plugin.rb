@@ -1,4 +1,4 @@
-# name: curated home
+# name: discourse-curated-home
 # about: shows a curated home in a different style
 # version: 0.1
 # authors: Benjamin Kampmann

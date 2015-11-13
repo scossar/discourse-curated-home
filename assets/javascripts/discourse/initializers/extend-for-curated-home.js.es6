@@ -1,6 +1,8 @@
 import TopicModel from "discourse/models/topic";
 import TopicController from "discourse/controllers/topic";
 import DiscoveryTopicsController from "discourse/controllers/discovery/topics";
+import NavItemModel from 'discourse/models/nav-item';
+import HomeNavItem from 'discourse/plugins/discourse-curated-home/discourse/models/home-nav-item';
 
 export default {
   name: "extend-for-curated-home",
@@ -11,6 +13,16 @@ export default {
         this.render("navigation/default", { outlet: "navigation-bar" });
         this.render("curated-home", { controller: "discovery/topics", outlet: "list-container"});
       }
+    });
+
+    NavItemModel.reopenClass({
+      buildList: function(category, args) {
+        let list = this._super(category, args);
+        list = list.filter(i => i.get("name") !== "curated");
+        list.push(HomeNavItem.create({href: '/', name: "home"}));
+        return list;
+      }
+
     });
 
     TopicModel.reopen({
