@@ -70,9 +70,10 @@ export default {
     });
 
     NavigationDefaultController.reopen({
-      homeNav: function() {
+      homeNavLinkContent: function() {
         return HomeNavItem.create({href: '/', name: "home"});
       }.property(),
+
     });
   }
 }
