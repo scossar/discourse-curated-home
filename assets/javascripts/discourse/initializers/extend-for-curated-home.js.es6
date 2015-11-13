@@ -26,7 +26,7 @@ export default {
       buildList: function(category, args) {
         let list = this._super(category, args);
         list = list.filter(i => i.get("name") !== "curated");
-        list.unshift(HomeNavItem.create({href: '/', name: "home"}));
+        //list.unshift(HomeNavItem.create({href: '/', name: "home"}));
         return list;
       },
     });
@@ -67,6 +67,12 @@ export default {
         return "this is a test";
       }.property()
 
+    });
+
+    NavigationDefaultController.reopen({
+      homeNav: function() {
+        return HomeNavItem.create({href: '/', name: "home"});
+      }.property(),
     });
   }
 }
