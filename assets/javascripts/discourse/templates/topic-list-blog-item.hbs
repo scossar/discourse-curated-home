@@ -35,11 +35,12 @@
 
 
     <span class="date">
-      {{#if bumped}}
-        {{raw-date bumped_at}}
-      {{else}}
-        {{raw-date created_at}}
-      {{/if}}
+      {{createdAt}}
+      {{! #if bumped}}
+        {{! raw-date bumped_at}}
+      {{! else}}
+        {{! raw-date created_at}}
+      {{! /if}}
     </span>
   </p>
 </div>

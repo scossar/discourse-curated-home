@@ -45,6 +45,10 @@ export default {
       cleanedExcerpt: function() {
         return this.get('excerpt').replace("[image]", "");
       }.property('excerpt'),
+
+      createdAt: function() {
+        return new Date(this.get('created_at')).toLocaleDateString();
+      }.property('created_at'),
     });
 
     TopicController.reopen({
