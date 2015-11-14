@@ -69,10 +69,6 @@ export default {
         return this.get('model.loaded');
       }.property('model.loaded'),
 
-      blogExcerpt: function() {
-        return "this is a test";
-      }.property()
-
     });
 
     // Try to get a plugin outlet added to `discovery.hbs` before the navigation bar to clean this up
