@@ -46,15 +46,15 @@ $curated-half-rhythm: $curated-rhythm / 2;
   }
 
   .post-meta {
-    float: left;
+    //float: left;
     line-height: 1;
-    font-size: 0.8em;
-    clear: both;
+    font-size: 0.618em;
+    //clear: both;
 
     @media (min-width: 960px) {
-      clear: none;
-      margin-left:$curated-rhythm;
-      border-top: 2px solid #d4d4d4;
+      //clear: none;
+      //margin-left:$curated-rhythm;
+      //border-top: 2px solid #d4d4d4;
     }
   }
 }
