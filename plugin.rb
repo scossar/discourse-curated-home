@@ -6,6 +6,7 @@
 enabled_site_setting :curated_home_enabled
 
 register_asset "curated_home_style.scss"
+register_asset "javascripts/curated-dialect.js", :server_side
 
 after_initialize do
   require_dependency File.expand_path('../integrate.rb', __FILE__)

@@ -43,8 +43,8 @@ export default {
       },
 
       cleanedExcerpt: function() {
-        return this.get('excerpt').replace("[image]", "");
-      }.property('excerpt'),
+        return "this is a test";
+      }.property('views'),
 
       createdAt: function() {
         return new Date(this.get('created_at')).toLocaleDateString();
@@ -57,7 +57,8 @@ export default {
           let model = this.get("content");
           model.setCustomField(property, !model.get(property));
         }
-      }
+      },
+
     });
 
     DiscoveryTopicsController.reopen({
@@ -68,7 +69,6 @@ export default {
       loaded: function() {
         return this.get('model.loaded');
       }.property('model.loaded'),
-
     });
 
     // Try to get a plugin outlet added to `discovery.hbs` before the navigation bar to clean this up
