@@ -17,6 +17,7 @@
               {{createdAt}}
             </span>
           {{#if category}}
+            <br>
             <span class="category-title">
         {{ i18n 'in'}}
               {{bound-category-link category showParent=false allowUncategorized=true}}
@@ -32,7 +33,6 @@
     <img class="teaser" {{bind-attr src="image_url"}} >
   {{/if}}
 
-    {{{cleanedExcerpt}}}
   {{{fullExcerpt}}}
     // <a href="{{unbound url}}">{{i18n 'read_more'}}</a>
 </div>

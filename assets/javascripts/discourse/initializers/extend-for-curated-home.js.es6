@@ -42,9 +42,10 @@ export default {
         });
       },
 
-      cleanedExcerpt: function() {
-        return "this is a test";
-      }.property('views'),
+      fullExcerpt: function() {
+        return this.get('full_excerpt');
+      }.property('full_excerpt'),
+
 
       createdAt: function() {
         return new Date(this.get('created_at')).toLocaleDateString();

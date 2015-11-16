@@ -9,6 +9,13 @@ register_asset "curated_home_style.scss"
 register_asset "javascripts/curated-dialect.js", :server_side
 
 after_initialize do
+
+  Topic.class_eval do
+    def full_excerpt
+      posts.first.cooked
+    end
+  end
+
   require_dependency File.expand_path('../integrate.rb', __FILE__)
 end
 

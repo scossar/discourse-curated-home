@@ -9,6 +9,8 @@ module CuratedTopicQuery
   def list_sidebar
     in_sidebar = TopicCustomField.where("name = 'is_in_sidebar' AND value = 'true'")
     return list_latest unless in_sidebar.first
+
+    create_list(:curated, :topic_ids => in_sidebar.pluck(:topic_id))
   end
 
 end
@@ -24,6 +26,12 @@ module AddTopicCreatedBy
 
   def include_excerpt?
     pinned || object.custom_fields["is_on_home"]
+  end
+end
+
+module AddFullExcerpt
+  def self.included(base)
+    base.attributes :full_excerpt
   end
 end
 
@@ -73,8 +81,11 @@ end
 TopicViewSerializer.send(:include, AddTopicIsOnHome)
 TopicViewSerializer.send(:include, AddTopicIsInSidebar)
 TopicListItemSerializer.send(:include, AddTopicCreatedBy)
+TopicListItemSerializer.send(:include, AddFullExcerpt)
 TopicsController.send(:include, AddCustomFieldUpdater)
 TopicQuery.send(:include, CuratedTopicQuery)
+# Topic.send(:include, AddFullExcerpt)
+# BasicTopicSerializer.send(:include, AddFullExcerpt)
 
 
 Discourse::Application.routes.append do
