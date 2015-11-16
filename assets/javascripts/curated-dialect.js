@@ -1,6 +1,6 @@
 (function() {
   function replaceExcerpt (text) {
-    while (text != (text = text.replace(/\[excerpt\](.*)\[\/excerpt\]/ig, function (match, p1, offset, string) {
+    while (text != (text = text.replace(/\[excerpt\]([\s\S]*)\[\/excerpt\]/ig, function (match, p1, offset, string) {
       //return "<span class='curated-excerpt'>" + p1 + "</span>";
       return "<div class='curated-excerpt'>" + p1 + "</div>";
     })));
