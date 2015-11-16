@@ -6,13 +6,6 @@ module CuratedTopicQuery
 
     create_list(:curated, :topic_ids => on_home.pluck(:topic_id))
   end
-  def list_sidebar
-    in_sidebar = TopicCustomField.where("name = 'is_in_sidebar' AND value = 'true'")
-    return list_latest unless in_sidebar.first
-
-    create_list(:curated, :topic_ids => in_sidebar.pluck(:topic_id))
-  end
-
 end
 
 module AddTopicCreatedBy
@@ -45,16 +38,6 @@ module AddTopicIsOnHome
   end
 end
 
-module AddTopicIsInSidebar
-  def self.included(base)
-    base.attributes :is_in_sidebar
-  end
-
-  def is_in_sidebar
-    object.topic.custom_fields["is_in_sidebar"] || false
-  end
-end
-
 module AddCustomFieldUpdater
   def custom_field
     params.require(:field)
@@ -72,21 +55,13 @@ module AddCustomFieldUpdater
   def custom_field_is_on_home_updating
     @topic.excerpt = @topic.ordered_posts.first.excerpt
   end
-
-  def custom_field_is_in_sidebar_updating
-    @topic.excerpt = @topic.ordered_posts.first.excerpt
-  end
 end
 
 TopicViewSerializer.send(:include, AddTopicIsOnHome)
-TopicViewSerializer.send(:include, AddTopicIsInSidebar)
 TopicListItemSerializer.send(:include, AddTopicCreatedBy)
 TopicListItemSerializer.send(:include, AddFullExcerpt)
 TopicsController.send(:include, AddCustomFieldUpdater)
 TopicQuery.send(:include, CuratedTopicQuery)
-# Topic.send(:include, AddFullExcerpt)
-# BasicTopicSerializer.send(:include, AddFullExcerpt)
-
 
 Discourse::Application.routes.append do
   put "t/:slug/:topic_id/custom_field" => "topics#custom_field", constraints: {topic_id: /\d+/}
