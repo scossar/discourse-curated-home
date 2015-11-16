@@ -28,7 +28,6 @@ export default {
       buildList: function(category, args) {
         let list = this._super(category, args);
         list = list.filter(i => i.get("name") !== "curated");
-        //list.unshift(HomeNavItem.create({href: '/', name: "home"}));
         return list;
       },
     });
@@ -46,7 +45,6 @@ export default {
         return this.get('full_excerpt');
       }.property('full_excerpt'),
 
-
       createdAt: function() {
         return new Date(this.get('created_at')).toLocaleDateString();
       }.property('created_at'),
@@ -59,7 +57,6 @@ export default {
           model.setCustomField(property, !model.get(property));
         }
       },
-
     });
 
     DiscoveryTopicsController.reopen({

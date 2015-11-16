@@ -14,6 +14,7 @@ en:
         curated: ""
     in: "in"
     by: "by"
+    read_more: "read the full article"
     filters:
       curated:
         title: "Home"
