@@ -46,8 +46,8 @@ export default {
       }.property('full_excerpt'),
 
       createdAt: function() {
-        return new Date(this.get('created_at')).toLocaleDateString();
-      }.property('created_at'),
+        return new Date(this.get('bumped_at')).toLocaleDateString();
+      }.property('bumped_at'),
     });
 
     TopicController.reopen({

@@ -11,13 +11,11 @@ register_asset "javascripts/curated-dialect.js", :server_side
 after_initialize do
 
   Topic.class_eval do
-    require_dependency 'nokogiri'
-
     def full_excerpt
       post = posts.first.cooked
       doc = Nokogiri::HTML(post)
       excerpt = doc.css('.curated-excerpt').children
-      excerpt ? excerpt.to_s : post
+      excerpt.length > 0 ? excerpt.to_s : post
     end
   end
 
