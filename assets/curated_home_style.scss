@@ -18,6 +18,8 @@ $curated-half-rhythm: $curated-rhythm / 2;
 .curated-home .post-content {
   max-width: 690px;
   float: left;
+  padding-bottom: 1.5 * $curated-rhythm;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 #list-area h2.post-title {

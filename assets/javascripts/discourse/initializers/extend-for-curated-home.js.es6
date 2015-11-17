@@ -15,7 +15,7 @@ export default {
       renderTemplate() {
         this.render("navigation/default", { outlet: "navigation-bar" });
         this.render("curated-home", { controller: "discovery/topics", outlet: "list-container"});
-      }
+      },
     });
 
     NavItemModel.reopen({
